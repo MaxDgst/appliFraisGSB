@@ -21,6 +21,7 @@ switch($action){
 			$id = $utilisateur['id'];
 			$nom =  $utilisateur['nom'];
 			$prenom = $utilisateur['prenom'];
+			$role = $utilisateur['role'];
 			connecter($id,$nom,$prenom);
 			include("vues/v_sommaire.php");
 		}
