@@ -22,7 +22,7 @@ switch($action){
 			$nom =  $utilisateur['nom'];
 			$prenom = $utilisateur['prenom'];
 			$role = $utilisateur['role'];
-			connecter($id,$nom,$prenom);
+			connecter($id,$nom,$prenom,$role);
 			include("vues/v_sommaire.php");
 		}
 		break;

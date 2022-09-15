@@ -5,7 +5,9 @@
         <h2>
     
 </h2>
-    <?php if($role == 'v') {?>
+    <?php
+    $role = $_SESSION["role"];
+     if($role == 'v') {?>
       </div>  
         <ul id="menuList">
 			<li >
