@@ -49,7 +49,7 @@ INSERT INTO `etat` (`id`, `libelle`) VALUES
 --
 
 CREATE TABLE `fichefrais` (
-  `idVisiteur` char(4) NOT NULL,
+  `idUtilisateur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `nbJustificatifs` int(11) DEFAULT NULL,
   `montantValide` decimal(10,2) DEFAULT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `fichefrais` (
 -- Déchargement des données de la table `fichefrais`
 --
 
-INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
+INSERT INTO `fichefrais` (`idUtilisateur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
 ('a131', '201706', 11, '2165.43', '2017-08-01', 'RB'),
 ('a131', '201707', 2, '3280.02', '2017-09-05', 'RB'),
 ('a131', '201708', 11, '3652.49', '2017-10-04', 'RB'),
@@ -1039,7 +1039,7 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 ('f21', '202002', 12, '2275.04', '2020-04-06', 'RB'),
 ('f21', '202003', 12, '4150.30', '2020-05-08', 'RB'),
 ('f21', '202004', 12, '2463.00', '2020-06-04', 'RB');
-INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
+INSERT INTO `fichefrais` (`idUtilisateur`, `mois`, `nbJustificatifs`, `montantValide`, `dateModif`, `idEtat`) VALUES
 ('f21', '202005', 5, '3525.26', '2020-07-04', 'RB'),
 ('f21', '202006', 5, '1474.98', '2020-08-07', 'RB'),
 ('f21', '202007', 0, '2820.96', '2020-08-07', 'VA'),
@@ -1152,7 +1152,7 @@ INSERT INTO `fraisforfait` (`id`, `libelle`, `montant`) VALUES
 --
 
 CREATE TABLE `lignefraisforfait` (
-  `idVisiteur` char(4) NOT NULL,
+  `idUtilisateur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `idFraisForfait` char(3) NOT NULL,
   `quantite` int(11) DEFAULT NULL
@@ -1162,7 +1162,7 @@ CREATE TABLE `lignefraisforfait` (
 -- Déchargement des données de la table `lignefraisforfait`
 --
 
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+INSERT INTO `lignefraisforfait` (`idUtilisateur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('a131', '201706', 'ETP', 9),
 ('a131', '201706', 'KM', 391),
 ('a131', '201706', 'NUI', 3),
@@ -2966,7 +2966,7 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('b50', '201809', 'ETP', 10),
 ('b50', '201809', 'KM', 918),
 ('b50', '201809', 'NUI', 13);
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+INSERT INTO `lignefraisforfait` (`idUtilisateur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('b50', '201809', 'REP', 18),
 ('b50', '201810', 'ETP', 3),
 ('b50', '201810', 'KM', 459),
@@ -4780,7 +4780,7 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 ('e52', '201706', 'KM', 466),
 ('e52', '201706', 'NUI', 7),
 ('e52', '201706', 'REP', 16);
-INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quantite`) VALUES
+INSERT INTO `lignefraisforfait` (`idUtilisateur`, `mois`, `idFraisForfait`, `quantite`) VALUES
 ('e52', '201707', 'ETP', 8),
 ('e52', '201707', 'KM', 673),
 ('e52', '201707', 'NUI', 9),
@@ -5410,7 +5410,7 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 
 CREATE TABLE `lignefraishorsforfait` (
   `id` int(11) NOT NULL,
-  `idVisiteur` char(4) NOT NULL,
+  `idUtilisateur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
   `libelle` varchar(100) DEFAULT NULL,
   `date` date DEFAULT NULL,
@@ -5421,7 +5421,7 @@ CREATE TABLE `lignefraishorsforfait` (
 -- Déchargement des données de la table `lignefraishorsforfait`
 --
 
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idUtilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (1, 'a131', '201706', 'traiteur, alimentation, boisson', '2017-06-16', '419.00'),
 (2, 'a131', '201706', 'achat de matériel de papèterie', '2017-06-02', '37.00'),
 (3, 'a131', '201707', 'taxi', '2017-07-28', '36.00'),
@@ -6099,7 +6099,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (675, 'b16', '201712', 'repas avec praticien', '2017-12-16', '30.00'),
 (676, 'b16', '201712', 'taxi', '2017-12-26', '20.00'),
 (677, 'b16', '201712', 'location équipement vidéo/sonore', '2017-12-21', '485.00');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idUtilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (678, 'b16', '201712', 'taxi', '2017-12-17', '36.00'),
 (679, 'b16', '201801', 'traiteur, alimentation, boisson', '2018-01-27', '245.00'),
 (680, 'b16', '201801', 'traiteur, alimentation, boisson', '2018-01-01', '384.00'),
@@ -6774,7 +6774,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (1349, 'b50', '201712', 'traiteur, alimentation, boisson', '2017-12-15', '235.00'),
 (1350, 'b50', '201712', 'achat de matériel de papèterie', '2017-12-09', '25.00'),
 (1351, 'b50', '201801', 'taxi', '2018-01-17', '30.00');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idUtilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (1352, 'b50', '201801', 'Voyage SNCF', '2018-01-21', '139.00'),
 (1353, 'b50', '201801', 'rémunération intervenant/spécialiste', '2018-01-04', '288.00'),
 (1354, 'b50', '201801', 'taxi', '2018-01-14', '51.00'),
@@ -7445,7 +7445,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (2019, 'd13', '201811', 'location salle conférence', '2018-11-15', '574.00'),
 (2020, 'd13', '201812', 'rémunération intervenant/spécialiste', '2018-12-11', '705.00'),
 (2021, 'd13', '201902', 'traiteur, alimentation, boisson', '2019-02-12', '84.00');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idUtilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (2022, 'd13', '201902', 'rémunération intervenant/spécialiste', '2019-02-04', '287.00'),
 (2023, 'd13', '201902', 'location équipement vidéo/sonore', '2019-02-21', '712.00'),
 (2024, 'd13', '201902', 'frais vestimentaire/représentation', '2019-02-07', '54.00'),
@@ -8119,7 +8119,7 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 (2692, 'e49', '202007', 'frais vestimentaire/représentation', '2020-07-13', '371.00'),
 (2693, 'e49', '202007', 'location équipement vidéo/sonore', '2020-07-21', '359.00'),
 (2694, 'e49', '202008', 'repas avec praticien', '2020-08-05', '46.00');
-INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfait` (`id`, `idUtilisateur`, `mois`, `libelle`, `date`, `montant`) VALUES
 (2695, 'e49', '202008', 'traiteur, alimentation, boisson', '2020-08-27', '360.00'),
 (2696, 'e5', '201706', 'location véhicule', '2017-06-02', '74.00'),
 (2697, 'e5', '201706', 'location véhicule', '2017-06-10', '148.00'),
@@ -8762,10 +8762,10 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 -- --------------------------------------------------------
 
 --
--- Structure de la table `visiteur`
+-- Structure de la table `Utilisateur`
 --
 
-CREATE TABLE `visiteur` (
+CREATE TABLE `utilisateur` (
   `id` char(4) NOT NULL,
   `nom` char(30) DEFAULT NULL,
   `prenom` char(30) DEFAULT NULL,
@@ -8774,42 +8774,44 @@ CREATE TABLE `visiteur` (
   `adresse` char(30) DEFAULT NULL,
   `cp` char(5) DEFAULT NULL,
   `ville` char(30) DEFAULT NULL,
-  `dateEmbauche` date DEFAULT NULL
+  `dateEmbauche` date DEFAULT NULL,
+  `role` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `visiteur`
+-- Déchargement des données de la table `Utilisateur`
 --
 
-INSERT INTO `visiteur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`) VALUES
-('a131', 'Villechalane', 'Louis', 'lvillachane', '92eb980737f1854076b2e34933286d8e', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21'),
-('a17', 'Andre', 'David', 'dandre', '37f2381c9a729782c38410b1ea5b8191', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23'),
-('a55', 'Bedos', 'Christian', 'cbedos', '26ec3c585ee973005c2744742d920dc3', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12'),
-('a93', 'Tusseau', 'Louis', 'ltusseau', 'f85f3127fc55f0ad7433b6879bc05f4e', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01'),
-('b13', 'Bentot', 'Pascal', 'pbentot', 'ae5d0d7637be4083a245f980a2189d97', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09'),
-('b16', 'Bioret', 'Luc', 'lbioret', '566ea5a9b3a6f186928cc20711f13fa8', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11'),
-('b19', 'Bunisset', 'Francis', 'fbunisset', '969c2fe5ac918a86a664b2041d5bc295', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21'),
-('b25', 'Bunisset', 'Denise', 'dbunisset', '03b01d4e2f53d838a2228e6cd57b8578', '23 rue Manin', '75019', 'paris', '2010-12-05'),
-('b28', 'Cacheux', 'Bernard', 'bcacheux', 'f6b78ee75c60c4becd5ed3daaca14127', '114 rue Blanche', '75017', 'Paris', '2009-11-12'),
-('b34', 'Cadic', 'Eric', 'ecadic', '36b98727aece53010ddde58639294427', '123 avenue de la République', '75011', 'Paris', '2008-09-23'),
-('b4', 'Charoze', 'Catherine', 'ccharoze', 'fce14894825737b9850d2bfccf0adf02', '100 rue Petit', '75019', 'Paris', '2005-11-12'),
-('b50', 'Clepkens', 'Christophe', 'cclepkens', '9ac1d70eef6e5f225b1db64eabaa4374', '12 allée des Anges', '93230', 'Romainville', '2003-08-11'),
-('b59', 'Cottin', 'Vincenne', 'vcottin', 'e509e3ed6ac643ac405aba9c40ebc591', '36 rue Des Roches', '93100', 'Monteuil', '2001-11-18'),
-('c14', 'Daburon', 'François', 'fdaburon', '44fda4ffdcf80a5f0c07fd0c82dafa4b', '13 rue de Chanzy', '94000', 'Créteil', '2002-02-11'),
-('c3', 'De', 'Philippe', 'pde', 'd5d01f0959b81d8e99e0ff5ecec858f7', '13 rue Barthes', '94000', 'Créteil', '2010-12-14'),
-('c445', 'Pipo', 'Pipo', 'pipo', '53235834494d56a7b8a9310322272c53', 'ici', 'la', 'Issy les Mx', '2020-03-01'),
-('c54', 'Debelle', 'Michel', 'mdebelle', '5583dc317a2427151176da897d02847c', '181 avenue Barbusse', '93210', 'Rosny', '2006-11-23'),
-('d13', 'Debelle', 'Jeanne', 'jdebelle', 'b7d60232b71cf9cbbfffa53cac58c2b6', '134 allée des Joncs', '44000', 'Nantes', '2000-05-11'),
-('d51', 'Debroise', 'Michel', 'mdebroise', '7101579c34d26bb94798fa096c577a8b', '2 Bld Jourdain', '44000', 'Nantes', '2001-04-17'),
-('e22', 'Desmarquest', 'Nathalie', 'ndesmarquest', '77f0798fb878eba2d41a92187db41370', '14 Place d Arc', '45000', 'Orléans', '2005-11-12'),
-('e24', 'Desnost', 'Pierre', 'pdesnost', 'f22a9af3e65d9b3942f242cb559374ae', '16 avenue des Cèdres', '23200', 'Guéret', '2001-02-05'),
-('e39', 'Dudouit', 'Frédéric', 'fdudouit', '09723e8247fbdda4d2dda2d15d160dfd', '18 rue de l église', '23120', 'GrandBourg', '2000-08-01'),
-('e49', 'Duncombe', 'Claude', 'cduncombe', '4b66fd37213456e6d58e79993a446241', '19 rue de la tour', '23100', 'La souteraine', '1987-10-10'),
-('e5', 'Enault-Pascreau', 'Céline', 'cenault', '8c2cfac2fc5e3b1100842b3573720cc8', '25 place de la gare', '23200', 'Gueret', '1995-09-01'),
-('e52', 'Eynde', 'Valérie', 'veynde', 'ea33b05db1515b43c387050ef64e687b', '3 Grand Place', '13015', 'Marseille', '1999-11-01'),
-('f21', 'Finck', 'Jacques', 'jfinck', 'ec5014f6a2f2631952b6c677409a29fe', '10 avenue du Prado', '13002', 'Marseille', '2001-11-10'),
-('f39', 'Frémont', 'Fernande', 'ffremont', '8774099cc05fd213276773425739ed85', '4 route de la mer', '13012', 'Allauh', '1998-10-01'),
-('f4', 'Gest', 'Alain', 'agest', '8167f1d92b7c2666aaf0d6f77cbc761d', '30 avenue de la mer', '13025', 'Berre', '1985-11-01');
+INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `login`, `mdp`, `adresse`, `cp`, `ville`, `dateEmbauche`,`role`) VALUES
+('a131', 'Villechalane', 'Louis', 'lvillachane', '92eb980737f1854076b2e34933286d8e', '8 rue des Charmes', '46000', 'Cahors', '2005-12-21','v'),
+('a17', 'Andre', 'David', 'dandre', '37f2381c9a729782c38410b1ea5b8191', '1 rue Petit', '46200', 'Lalbenque', '1998-11-23','v'),
+('a55', 'Bedos', 'Christian', 'cbedos', '26ec3c585ee973005c2744742d920dc3', '1 rue Peranud', '46250', 'Montcuq', '1995-01-12','v'),
+('a93', 'Tusseau', 'Louis', 'ltusseau', 'f85f3127fc55f0ad7433b6879bc05f4e', '22 rue des Ternes', '46123', 'Gramat', '2000-05-01','v'),
+('b13', 'Bentot', 'Pascal', 'pbentot', 'ae5d0d7637be4083a245f980a2189d97', '11 allée des Cerises', '46512', 'Bessines', '1992-07-09','v'),
+('b16', 'Bioret', 'Luc', 'lbioret', '566ea5a9b3a6f186928cc20711f13fa8', '1 Avenue gambetta', '46000', 'Cahors', '1998-05-11','v'),
+('b19', 'Bunisset', 'Francis', 'fbunisset', '969c2fe5ac918a86a664b2041d5bc295', '10 rue des Perles', '93100', 'Montreuil', '1987-10-21','v'),
+('b25', 'Bunisset', 'Denise', 'dbunisset', '03b01d4e2f53d838a2228e6cd57b8578', '23 rue Manin', '75019', 'paris', '2010-12-05','v'),
+('b28', 'Cacheux', 'Bernard', 'bcacheux', 'f6b78ee75c60c4becd5ed3daaca14127', '114 rue Blanche', '75017', 'Paris', '2009-11-12','v'),
+('b34', 'Cadic', 'Eric', 'ecadic', '36b98727aece53010ddde58639294427', '123 avenue de la République', '75011', 'Paris', '2008-09-23','v'),
+('b4', 'Charoze', 'Catherine', 'ccharoze', 'fce14894825737b9850d2bfccf0adf02', '100 rue Petit', '75019', 'Paris', '2005-11-12','v'),
+('b50', 'Clepkens', 'Christophe', 'cclepkens', '9ac1d70eef6e5f225b1db64eabaa4374', '12 allée des Anges', '93230', 'Romainville', '2003-08-11','v'),
+('b59', 'Cottin', 'Vincenne', 'vcottin', 'e509e3ed6ac643ac405aba9c40ebc591', '36 rue Des Roches', '93100', 'Monteuil', '2001-11-18','v'),
+('c14', 'Daburon', 'François', 'fdaburon', '44fda4ffdcf80a5f0c07fd0c82dafa4b', '13 rue de Chanzy', '94000', 'Créteil', '2002-02-11','v'),
+('c3', 'De', 'Philippe', 'pde', 'd5d01f0959b81d8e99e0ff5ecec858f7', '13 rue Barthes', '94000', 'Créteil', '2010-12-14','v'),
+('c445', 'Pipo', 'Pipo', 'pipo', '53235834494d56a7b8a9310322272c53', 'ici', 'la', 'Issy les Mx', '2020-03-01','v'),
+('c54', 'Debelle', 'Michel', 'mdebelle', '5583dc317a2427151176da897d02847c', '181 avenue Barbusse', '93210', 'Rosny', '2006-11-23','v'),
+('d13', 'Debelle', 'Jeanne', 'jdebelle', 'b7d60232b71cf9cbbfffa53cac58c2b6', '134 allée des Joncs', '44000', 'Nantes', '2000-05-11','v'),
+('d51', 'Debroise', 'Michel', 'mdebroise', '7101579c34d26bb94798fa096c577a8b', '2 Bld Jourdain', '44000', 'Nantes', '2001-04-17','v'),
+('e22', 'Desmarquest', 'Nathalie', 'ndesmarquest', '77f0798fb878eba2d41a92187db41370', '14 Place d Arc', '45000', 'Orléans', '2005-11-12','v'),
+('e24', 'Desnost', 'Pierre', 'pdesnost', 'f22a9af3e65d9b3942f242cb559374ae', '16 avenue des Cèdres', '23200', 'Guéret', '2001-02-05','v'),
+('e39', 'Dudouit', 'Frédéric', 'fdudouit', '09723e8247fbdda4d2dda2d15d160dfd', '18 rue de l église', '23120', 'GrandBourg', '2000-08-01','v'),
+('e49', 'Duncombe', 'Claude', 'cduncombe', '4b66fd37213456e6d58e79993a446241', '19 rue de la tour', '23100', 'La souteraine', '1987-10-10','v'),
+('e5', 'Enault-Pascreau', 'Céline', 'cenault', '8c2cfac2fc5e3b1100842b3573720cc8', '25 place de la gare', '23200', 'Gueret', '1995-09-01','v'),
+('e52', 'Eynde', 'Valérie', 'veynde', 'ea33b05db1515b43c387050ef64e687b', '3 Grand Place', '13015', 'Marseille', '1999-11-01','v'),
+('f21', 'Finck', 'Jacques', 'jfinck', 'ec5014f6a2f2631952b6c677409a29fe', '10 avenue du Prado', '13002', 'Marseille', '2001-11-10','v'),
+('f39', 'Frémont', 'Fernande', 'ffremont', '8774099cc05fd213276773425739ed85', '4 route de la mer', '13012', 'Allauh', '1998-10-01','v'),
+('f4', 'Gest', 'Alain', 'agest', '8167f1d92b7c2666aaf0d6f77cbc761d', '30 avenue de la mer', '13025', 'Berre', '1985-11-01','v'),
+('a43','Bouteiller', 'Paolo', 'pbouteiller', '81dc9bdb52d04dc20036dbd8313ed055', '3 rue des tulipes', '72250', 'Parigné L évêque', '2019-06-05', 'c');
 
 --
 -- Index pour les tables déchargées
@@ -8825,7 +8827,7 @@ ALTER TABLE `etat`
 -- Index pour la table `fichefrais`
 --
 ALTER TABLE `fichefrais`
-  ADD PRIMARY KEY (`idVisiteur`,`mois`),
+  ADD PRIMARY KEY (`idUtilisateur`,`mois`),
   ADD KEY `idEtat` (`idEtat`);
 
 --
@@ -8838,7 +8840,7 @@ ALTER TABLE `fraisforfait`
 -- Index pour la table `lignefraisforfait`
 --
 ALTER TABLE `lignefraisforfait`
-  ADD PRIMARY KEY (`idVisiteur`,`mois`,`idFraisForfait`),
+  ADD PRIMARY KEY (`idUtilisateur`,`mois`,`idFraisForfait`),
   ADD KEY `idFraisForfait` (`idFraisForfait`);
 
 --
@@ -8846,12 +8848,12 @@ ALTER TABLE `lignefraisforfait`
 --
 ALTER TABLE `lignefraishorsforfait`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idVisiteur` (`idVisiteur`,`mois`);
+  ADD KEY `idUtilisateur` (`idUtilisateur`,`mois`);
 
 --
--- Index pour la table `visiteur`
+-- Index pour la table `Utilisateur`
 --
-ALTER TABLE `visiteur`
+ALTER TABLE `utilisateur`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -8873,20 +8875,20 @@ ALTER TABLE `lignefraishorsforfait`
 --
 ALTER TABLE `fichefrais`
   ADD CONSTRAINT `fichefrais_ibfk_1` FOREIGN KEY (`idEtat`) REFERENCES `etat` (`id`),
-  ADD CONSTRAINT `fichefrais_ibfk_2` FOREIGN KEY (`idVisiteur`) REFERENCES `visiteur` (`id`);
+  ADD CONSTRAINT `fichefrais_ibfk_2` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateur` (`id`);
 
 --
 -- Contraintes pour la table `lignefraisforfait`
 --
 ALTER TABLE `lignefraisforfait`
-  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idVisiteur`,`mois`) REFERENCES `fichefrais` (`idVisiteur`, `mois`),
+  ADD CONSTRAINT `lignefraisforfait_ibfk_1` FOREIGN KEY (`idUtilisateur`,`mois`) REFERENCES `fichefrais` (`idUtilisateur`, `mois`),
   ADD CONSTRAINT `lignefraisforfait_ibfk_2` FOREIGN KEY (`idFraisForfait`) REFERENCES `fraisforfait` (`id`);
 
 --
 -- Contraintes pour la table `lignefraishorsforfait`
 --
 ALTER TABLE `lignefraishorsforfait`
-  ADD CONSTRAINT `lignefraishorsforfait_ibfk_1` FOREIGN KEY (`idVisiteur`,`mois`) REFERENCES `fichefrais` (`idVisiteur`, `mois`);
+  ADD CONSTRAINT `lignefraishorsforfait_ibfk_1` FOREIGN KEY (`idUtilisateur`,`mois`) REFERENCES `fichefrais` (`idUtilisateur`, `mois`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
