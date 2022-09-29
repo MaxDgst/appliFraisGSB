@@ -32,7 +32,7 @@
 				<?php 
 				}
 				else{ ?>
-				<option value="<?php echo $mois ?>"><?php echo  $numMois."/".$numAnnee ?> </option>
+				<option value="<?php echo $mois ?>"><?php echo  $numMois."/".$numAnnee ?> </option><br>
 				<?php 
 				}
 			
@@ -44,9 +44,8 @@
                 </p>
                 </div>
                 <div class="piedForm">
-                <p>
+                <p><br>
                     <input id="ok" type="submit" value="Valider" size="20" />
-                    <input id="annuler" type="reset" value="Effacer" size="20" />
                 </p> 
                 </div>
             </select>
