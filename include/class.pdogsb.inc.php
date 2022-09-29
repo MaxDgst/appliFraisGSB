@@ -61,12 +61,13 @@ class PdoGsb{
 		return $ligne;
 	}
 
-	public function getVisiteurs(){
-		$req = "select utilisateur.nom as nom, utilisateur.prenom as prenom from utilisateur where utilisateur.role='v'";
+	function getVisiteurs(){
+		$req = "select nom, prenom from utilisateur where role='V'";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesVisiteurs = $res->fetchAll();
 		return $lesVisiteurs;
 	}
+
 
 /**
  * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
