@@ -52,7 +52,6 @@
 
                 </select>
             </p>
-
             <div class="piedForm">
                 <p>
                     <input id="ok" type="submit" value="Valider" size="20" />
