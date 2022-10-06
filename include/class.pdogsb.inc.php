@@ -62,10 +62,43 @@ class PdoGsb{
 	}
 
 	public function getVisiteurs(){
-		$req = "select utilisateur.nom as nom, utilisateur.prenom as prenom from utilisateur where utilisateur.role='v'";
+		$req = "select utilisateur.id as id, utilisateur.nom as nom, utilisateur.prenom as prenom from utilisateur where utilisateur.role='v'";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesVisiteurs = $res->fetchAll();
 		return $lesVisiteurs;
+	}
+
+	function getInfosVisiteur()
+	{
+		$req = "select id, nom, prenom from utilisateur where role='V'";
+		$res = PdoGsb::$monPdo->query($req);
+		$lesVisiteurs = $res->fetchAll();
+		return $lesVisiteurs;
+	}
+
+	public function getAllMoisIsset()
+	{
+		$req = "SELECT ff.mois FROM fichefrais as ff GROUP BY ff.mois ORDER BY ff.mois DESC";
+		$rs = PdoGsb::$monPdo->query($req);
+		$ligne = $rs->fetchAll();
+		return $ligne;
+	}
+
+	public function getEtatFicheUtilisateur($idUtilisateur, $mois)
+	{
+		$req = "SELECT ff.idEtat as idEtat, e.libelle as libelle, ff.dateModif as datefiche, ff.montantValide as montant FROM fichefrais as ff, etat as e WHERE ff.idUtilisateur = '$idUtilisateur' AND ff.mois = '$mois' AND ff.idEtat = e.id";
+		$rs = PdoGsb::$monPdo->query($req);
+		$ligne = $rs->fetch();
+		return $ligne;
+	}
+
+	public function getInfosUtilisateurByID($idUtilisateur)
+	{
+		$req = "select * from utilisateur 
+		where utilisateur.id='$idUtilisateur'";
+		$rs = PdoGsb::$monPdo->query($req);
+		$ligne = $rs->fetch();
+		return $ligne;
 	}
 
 /**

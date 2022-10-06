@@ -35,7 +35,7 @@
 				<?php echo $_SESSION['prenom']."  ".$_SESSION['nom']  ?>
 			</li>
            <li class="smenu">
-              <a href="index.php?uc=validerFrais&action=validerFrais" title="Valider fiche de frais">Valider fiche de frais</a>
+              <a href="index.php?uc=validerFrais&action=voirValiderFrais" title="Valider fiche de frais">Valider fiche de frais</a>
            </li>
            <li class="smenu">
               <a href="index.php?uc=etatFrais&action=selectionnerMois" title="Suivi des fiches de frais">Suivi des fiche de frais</a>
