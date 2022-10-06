@@ -101,37 +101,38 @@ class PdoGsb{
 		return $ligne;
 	}
 
-	}
-=======
->>>>>>> 4631fc4d4530e4837bf177e0ebdf9d4e6902c0dd
-ées par les deux arguments
+	
+	/**
+	 * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
+	 * concernées par les deux arguments
  
- * La boucle foreach ne peut être utilisée ici car on procède
- * à une modification de la structure itérée - transformation du champ date-
+	 * La boucle foreach ne peut être utilisée ici car on procède
+	 * à une modification de la structure itérée - transformation du champ date-
  
- * @param $idUtilisateur
- * @param $mois sous la forme aaaamm
- * @return tous les champs des lignes de frais hors forfait sous la forme d'un tableau associatif 
-*/
-	public function getLesFraisHorsForfait($idUtilisateur,$mois){
-	    $req = "select * from lignefraishorsforfait where lignefraishorsforfait.idutilisateur ='$idUtilisateur' 
-		and lignefraishorsforfait.mois = '$mois' ";	
+	 * @param $idVisiteur 
+	 * @param $mois sous la forme aaaamm
+	 * @return tous les champs des lignes de frais hors forfait sous la forme d'un tableau associatif 
+	 */
+	public function getLesFraisHorsForfait($idVisiteur, $mois)
+	{
+		$req = "select * from lignefraishorsforfait where lignefraishorsforfait.idvisiteur ='$idVisiteur' 
+		and lignefraishorsforfait.mois = '$mois' ";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
 		$nbLignes = count($lesLignes);
-		for ($i=0; $i<$nbLignes; $i++){
+		for ($i = 0; $i < $nbLignes; $i++) {
 			$date = $lesLignes[$i]['date'];
 			$lesLignes[$i]['date'] =  dateAnglaisVersFrancais($date);
 		}
-		return $lesLignes; 
+		return $lesLignes;
 	}
-/**
- * Retourne le nombre de justificatif d'un utilisateur pour un mois donné
+	/**
+	 * Retourne le nombre de justificatif d'un visiteur pour un mois donné
  
- * @param $idutilisateur 
- * @param $mois sous la forme aaaamm
- * @return le nombre entier de justificatifs 
-*/
+	 * @param $idVisiteur 
+	 * @param $mois sous la forme aaaamm
+	 * @return le nombre entier de justificatifs 
+	 */
 	public function getNbjustificatifs($idUtilisateur, $mois){
 		$req = "select fichefrais.nbjustificatifs as nb from  fichefrais where fichefrais.idutilisateur ='$idUtilisateur' and fichefrais.mois = '$mois'";
 		$res = PdoGsb::$monPdo->query($req);
