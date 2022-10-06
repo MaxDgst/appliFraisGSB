@@ -101,9 +101,10 @@ class PdoGsb{
 		return $ligne;
 	}
 
-/**
- * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
- * concernées par les deux arguments
+	}
+=======
+>>>>>>> 4631fc4d4530e4837bf177e0ebdf9d4e6902c0dd
+ées par les deux arguments
  
  * La boucle foreach ne peut être utilisée ici car on procède
  * à une modification de la structure itérée - transformation du champ date-
