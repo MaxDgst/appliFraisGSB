@@ -37,6 +37,8 @@ switch ($action) {
                 $lesFraisForfait = $pdo->getLesFraisForfait($_POST["lstVisiteurs"], $mois_visiteur);
 
                 $infos_visiteur = $pdo->getInfosUtilisateurByID($_POST["lstVisiteurs"]);
+                $nbJustificatifs = $pdo->getNbJustificatifs($_POST["lstVisiteurs"], $mois_visiteur);
+                $lesFraisHorsForfait = $pdo->getLesFraisHorsForfait($_POST["lstVisiteurs"], $mois_visiteur);
             }
             include("vues/v_validerFrais.php");
             include("vues/v_listeValiderFrais.php");

@@ -101,6 +101,14 @@ class PdoGsb{
 		return $ligne;
 	}
 
+	public function getNbJustificatifs($idUtilisateur, $mois)
+	{
+		$req = "select fichefrais.nbJustificatifs as nb from fichefrais where fichefrais.idUtilisateur = '$idUtilisateur'and fichefrais.mois = '$mois'";
+		$res = PdoGsb::$monPdo->query($req);
+		$laLigne = $res->fetch();
+		return $laLigne['nb'];
+	}
+
 	
 	/**
 	 * Retourne sous forme d'un tableau associatif toutes les lignes de frais hors forfait
@@ -113,9 +121,9 @@ class PdoGsb{
 	 * @param $mois sous la forme aaaamm
 	 * @return tous les champs des lignes de frais hors forfait sous la forme d'un tableau associatif 
 	 */
-	public function getLesFraisHorsForfait($idVisiteur, $mois)
+	public function getLesFraisHorsForfait($idUtilisateur, $mois)
 	{
-		$req = "select * from lignefraishorsforfait where lignefraishorsforfait.idvisiteur ='$idVisiteur' 
+		$req = "select * from lignefraishorsforfait where lignefraishorsforfait.idUtilisateur ='$idUtilisateur' 
 		and lignefraishorsforfait.mois = '$mois' ";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesLignes = $res->fetchAll();
@@ -133,12 +141,6 @@ class PdoGsb{
 	 * @param $mois sous la forme aaaamm
 	 * @return le nombre entier de justificatifs 
 	 */
-	public function getNbjustificatifs($idUtilisateur, $mois){
-		$req = "select fichefrais.nbjustificatifs as nb from  fichefrais where fichefrais.idutilisateur ='$idUtilisateur' and fichefrais.mois = '$mois'";
-		$res = PdoGsb::$monPdo->query($req);
-		$laLigne = $res->fetch();
-		return $laLigne['nb'];
-	}
 /**
  * Retourne sous forme d'un tableau associatif toutes les lignes de frais au forfait
  * concernées par les deux arguments

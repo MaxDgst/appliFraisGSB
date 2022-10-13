@@ -48,6 +48,10 @@
               <label for="txtMontantHF">Montant : </label>
               <input type="text" id="txtMontantHF" name="montant" size="10" maxlength="10" value="" />
             </p>
+            <p>
+              <label for="txtActionHF">Action : </label>
+              <input type="text" id="txtActionHF" name="action" size="140" maxlength="150" value="" />
+            </p>
           </fieldset>
       </div>
       <div class="piedForm">
