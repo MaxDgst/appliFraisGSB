@@ -23,6 +23,9 @@ switch($uc){
 	case 'validerFrais' :{
 		include("controleurs/c_validerFrais.php");break;
 	}
+	case 'rembFrais' :{
+		include("controleurs/c_rembFrais.php");break;
+	}
 }
 include("vues/v_pied.php") ;
 ?>

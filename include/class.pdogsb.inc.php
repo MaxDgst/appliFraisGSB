@@ -159,6 +159,13 @@ class PdoGsb{
 		$lesLignes = $res->fetchAll();
 		return $lesLignes; 
 	}
+
+	public function getMontants(){
+		$req = "select libelle as libelle, montant as montant from fraisforfait";	
+		$res = PdoGsb::$monPdo->query($req);
+		$lesLignes = $res->fetchAll();
+		return $lesLignes; 
+	}
 /**
  * Retourne tous les id de la table FraisForfait
  
