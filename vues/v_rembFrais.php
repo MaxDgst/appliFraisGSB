@@ -10,4 +10,4 @@
                 echo "<tr> <td> $libelle </td> <td> $montant </td> </tr>"; ?>
             <?php } ?>
         </table>
-</div>
+</div>  
